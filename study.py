@@ -570,4 +570,17 @@
 # arithmetic=a+(n-1)*d
 # print(arithmetic)
 
-    
+
+n=5
+value="93571"
+for i in range(n):
+    for k in range(i):
+        print(" ",end="")
+    for j in range(n-i):
+        print(" ".join(value[:(n-i)]),end=" ")
+        break
+    print()
+                    
+# num = "93571"
+# for i in range(len(num)):
+#     print(" "*2*i," ".join(num[:len(num)-i]))
