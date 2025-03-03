@@ -571,16 +571,47 @@
 # print(arithmetic)
 
 
-n=5
-value="93571"
-for i in range(n):
-    for k in range(i):
-        print(" ",end="")
-    for j in range(n-i):
-        print(" ".join(value[:(n-i)]),end=" ")
-        break
-    print()
+# n=5
+# value="93571"
+# for i in range(n):
+#     for k in range(i):
+#         print(" ",end="")
+#     for j in range(n-i):
+#         print(" ".join(value[:(n-i)]),end=" ")
+#         break
+#     print()
                     
 # num = "93571"
 # for i in range(len(num)):
 #     print(" "*2*i," ".join(num[:len(num)-i]))
+
+# def mergeAlternately(word1: str, word2: str) -> str:
+#         stack=""
+#         n=0
+#         greater=max(len(word1),len(word2))
+#         for i in range(greater):
+#             if i<len(word1):
+#                 van=word1[i]
+#                 stack+=van
+#             if n<len(word2):
+#                 tan=word2[i]
+#                 stack+=tan
+#             n+=1
+#         return stack
+# print(mergeAlternately(word1 = "a", word2 = "pq"))
+s ="aaaaaa"
+t ="bbaaaa"
+stack=""
+for i in t:
+    if i in s:
+        stack+=i
+        if len(s)>0 and stack=="":
+            print(False)
+        if stack:
+            if stack in s:
+                print(True)
+            else:
+                print(False)
+
+print(stack)
+print(s)
