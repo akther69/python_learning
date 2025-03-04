@@ -599,19 +599,67 @@
 #             n+=1
 #         return stack
 # print(mergeAlternately(word1 = "a", word2 = "pq"))
-s ="aaaaaa"
-t ="bbaaaa"
-stack=""
-for i in t:
-    if i in s:
-        stack+=i
-        if len(s)>0 and stack=="":
-            print(False)
-        if stack:
-            if stack in s:
-                print(True)
-            else:
-                print(False)
+# s ="aaaaaa"
+# t ="bbaaaa"
+# stack=""
+# for i in t:
+#     if i in s:
+#         stack+=i
+#         if len(s)>0 and stack=="":
+#             print(False)
+#         if stack:
+#             if stack in s:
+#                 print(True)
+#             else:
+#                 print(False)
 
-print(stack)
-print(s)
+# print(stack)
+# print(s)
+
+# prices = [1,2,4]
+# prices=[7,1,5,3,4,6]
+prices=[2,4,1]
+# start=prices[0]
+# n=1
+# for i in prices:
+#     if start>prices[n]:
+#         start=prices[n]
+#     else:
+#         n+=1
+# new_list=prices.index(start)
+# print(start)
+# nw_list=prices[new_list:]
+# first=nw_list[0]
+# w=1
+# for i in nw_list:
+#     if first<nw_list[w]:
+#         first=nw_list[w]
+#     else:
+#         w+=1
+# if start>=first:
+#     print("0")
+# else:
+#     print(first)
+    
+   
+start=prices[0]
+n=0
+for i in prices:
+    if start>prices[n]:
+        start=prices[n]
+    else:
+        n+=1
+new_list=prices.index(start)
+nw_list=prices[new_list:]
+first=nw_list[0]
+w=0
+for i in range(1,len(nw_list)):
+    if first<nw_list[i]:
+        first=nw_list[i]
+print(start)
+print(first)
+print(nw_list)
+if start>=first:
+    print("0")
+else:
+    print(first-start)
