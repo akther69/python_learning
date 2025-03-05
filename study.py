@@ -642,24 +642,85 @@ prices=[2,4,1]
 #     print(first)
     
    
-start=prices[0]
-n=0
-for i in prices:
-    if start>prices[n]:
-        start=prices[n]
-    else:
-        n+=1
-new_list=prices.index(start)
-nw_list=prices[new_list:]
-first=nw_list[0]
-w=0
-for i in range(1,len(nw_list)):
-    if first<nw_list[i]:
-        first=nw_list[i]
-print(start)
-print(first)
-print(nw_list)
-if start>=first:
-    print("0")
-else:
-    print(first-start)
+# start=prices[0]
+# n=0
+# for i in prices:
+#     if start>prices[n]:
+#         start=prices[n]
+#     else:
+#         n+=1
+# new_list=prices.index(start)
+# nw_list=prices[new_list:]
+# first=nw_list[0]
+# w=0
+# for i in range(1,len(nw_list)):
+#     if first<nw_list[i]:
+#         first=nw_list[i]
+# print(start)
+# print(first)
+# print(nw_list)
+# if start>=first:
+#     print("0")
+# else:
+#     print(first-start)
+
+
+import random
+import sys
+import time
+
+sys.setrecursionlimit(10**6)
+
+class Maze:
+    def __init__(self, width, height):
+        self.width = width
+        self.height = height
+        self.maze = [['#' for _ in range(width)] for _ in range(height)]
+        self.visited = set()
+        self.start = (1, 1)
+        self.end = (height - 2, width - 2)
+        self.path = []
+
+    def generate_maze(self, x=1, y=1):
+        self.maze[y][x] = ' '
+        self.visited.add((x, y))
+        directions = [(0, 2), (2, 0), (-2, 0), (0, -2)]
+        random.shuffle(directions)
+
+        for dx, dy in directions:
+            nx, ny = x + dx, y + dy
+            if 1 <= nx < self.width - 1 and 1 <= ny < self.height - 1 and (nx, ny) not in self.visited:
+                self.maze[y + dy // 2][x + dx // 2] = ' '
+                self.generate_maze(nx, ny)
+
+    def solve_maze(self, x, y):
+        if (x, y) == self.end:
+            self.path.append((x, y))
+            return True
+
+        if self.maze[y][x] == '#' or (x, y) in self.path:
+            return False
+
+        self.path.append((x, y))
+
+        if any(self.solve_maze(x + dx, y + dy) for dx, dy in [(0, 1), (1, 0), (-1, 0), (0, -1)]):
+            return True
+
+        self.path.pop()
+        return False
+
+    def display_maze(self):
+        for y in range(self.height):
+            for x in range(self.width):
+                if (x, y) in self.path:
+                    print('·', end=' ')
+                else:
+                    print(self.maze[y][x], end=' ')
+            print()
+
+if __name__ == "__main__":
+    width, height = 21, 21
+    maze = Maze(width, height)
+    maze.generate_maze()
+    maze.solve_maze(*maze.start)
+    maze.display_maze()
