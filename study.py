@@ -232,7 +232,7 @@
 
 # password=input("Enter The Password: ")
 
-# if(8<= len(password) <20) and re.search(r"\d",password) and re.search(r"[A-Z]",password) and re.search(r"[a-z]",password) and re.search(r"[$&@]",password):
+# if(8<= len(password) <20) and re.search(r"\d.*\d",password) and re.search(r"[A-Z]",password) and re.search(r"[a-z]",password) and re.search(r"[$&@]",password):
     
 #     print("password Valid")
     
@@ -618,7 +618,7 @@
 
 # prices = [1,2,4]
 # prices=[7,1,5,3,4,6]
-prices=[2,4,1]
+# prices=[2,4,1]
 # start=prices[0]
 # n=1
 # for i in prices:
@@ -665,12 +665,61 @@ prices=[2,4,1]
 #     print(first-start)
 
 
-strs = ["flower","flow","flight"]
-stack=""
-for i in range(len(strs[0])):
-    for x in strs:
-        if i==len(x) or x[i]!=strs[0][i]:
-            print(stack)
-            exit()
-    stack+=strs[0][i]
-print(stack)
+# strs = ["flower","flow","flight"]
+# stack=""
+# for i in range(len(strs[0])):
+#     for x in strs:
+#         if i==len(x) or x[i]!=strs[0][i]:
+#             print(stack)
+#             exit()
+#     stack+=strs[0][i]
+# print(stack)
+
+# import random
+# s=["akther","ribah","paapa","shajimma","abiya"]
+# # stack=[]
+# # for i in s:
+# #     stack.insert(0,i)
+# # print(stack)
+# # print(stack.count(4))
+# result=random.choice(s)
+# print(result)
+
+
+# arr=[1,2,3,4,5,6,7,8,9,10]
+# sum=0
+# for i in arr:
+#     if i%2!=0:
+#         sum+=i
+# print(sum)
+
+
+# sen="how are you"
+# sen1=sen.split()
+# for i in sen1:
+#     print(i[:-1]+i[-1].upper(),end=" ")
+            
+# import re
+# sen = "hi,,, i am suhaib akther  s...."
+# result=[]
+# prev_char=""
+# for i in sen:
+#     if i in {"."," ",","}:
+#         if prev_char!=i:
+#             result.append(i)
+#     else:
+#         result.append(i)
+#     prev_char=i
+# print("".join(result))
+
+# sen=re.sub(r",+",",",sen)
+# sen=re.sub(r"\.+",".",sen)
+# sen=re.sub(r"/s+","/s",sen)
+# print(sen)
+
+
+
+
+
+
+
