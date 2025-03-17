@@ -717,6 +717,24 @@
 # sen=re.sub(r"/s+","/s",sen)
 # print(sen)
 
+def summary_ranges(nums):
+    res = []
+    if not nums:
+        return res
+    
+    start = nums[0]
+    
+    for i in range(1, len(nums)):
+        if nums[i] != nums[i - 1] + 1:
+            res.append(str(start) if start == nums[i - 1] else f"{start}->{nums[i - 1]}")
+            start = nums[i]
+    
+    res.append(str(start) if start == nums[-1] else f"{start}->{nums[-1]}")
+    return res
+
+# Example test cases
+print(summary_ranges([0, 1, 2, 4, 5, 7]))  # Output: ["0->2", "4->5", "7"]
+print(summary_ranges([0, 2, 3, 4, 6, 8, 9]))  # Output: ["0", "2->4", "6", "8->9"]
 
 
 
