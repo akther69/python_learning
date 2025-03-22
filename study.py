@@ -700,7 +700,7 @@
 #     print(i[:-1]+i[-1].upper(),end=" ")
             
 # import re
-# sen = "hi,,, i am suhaib akther  s...."
+sen = "hi,,, i am suhaib akther  s...."
 # result=[]
 # prev_char=""
 # for i in sen:
@@ -717,27 +717,55 @@
 # sen=re.sub(r"/s+","/s",sen)
 # print(sen)
 
-def summary_ranges(nums):
-    res = []
-    if not nums:
-        return res
-    
-    start = nums[0]
-    
-    for i in range(1, len(nums)):
-        if nums[i] != nums[i - 1] + 1:
-            res.append(str(start) if start == nums[i - 1] else f"{start}->{nums[i - 1]}")
-            start = nums[i]
-    
-    res.append(str(start) if start == nums[-1] else f"{start}->{nums[-1]}")
-    return res
+# prev_char=""
+# result=""
+# for i in sen:
+#     if i in {".",","," "}:
+#         if i!=prev_char:
+#             result+=i
+#     else:
+#         result+=i
+#     prev_char=i
+# print(result)
+            
+# z=input()
+# roman={"I":1,"V":5,"X":10,"L":50,"C":100,"D":500,"M":1000}
+# res=0
+# for i in range(len(z)):
+#     if i+1 < len(z) and roman[z[i]]<roman[z[i+1]]:
+#         res-=roman[z[i]]
+#     else:
+#         res+=roman[z[i]]
+# print(res) 
 
-# Example test cases
-print(summary_ranges([0, 1, 2, 4, 5, 7]))  # Output: ["0->2", "4->5", "7"]
-print(summary_ranges([0, 2, 3, 4, 6, 8, 9]))  # Output: ["0", "2->4", "6", "8->9"]
+# z=int(input())
+# res=""
+# value=[(1000,"M"),(900,"CM"),(500,"D"),(400,"CD"),(100,"C"),(90,"XC"),(50,"L"),(40,"XL"),(10,"X"),(9,"IX"),(5,"V"),(4,"IV"),(1,"I")]
+# for val,str in value:
+#     while z>=val:
+#         res+=str
+#         z-=val
+# print(res) 
 
-
-
-
+# stack=["fl","flow","flo"]
+# result=""
+# for i in range(len(stack)):
+#     for j in stack:
+#         if i==len(j) or stack[0][i]!=j[i]:
+#             print(result)
+#             exit()
+#     result+=stack[0][i]
+# print(result)
+            
+# given="{{{([[]]]]]]])}}}"
+# close={")":"(","}":"{","]":"["}
+# stack=[]
+# for i in given:
+#     if i in close:
+#         if stack and stack[-1]==close[i]:
+#             stack.pop()
+#             continue
+#     stack.append(i)
+# print(stack) 
 
 
